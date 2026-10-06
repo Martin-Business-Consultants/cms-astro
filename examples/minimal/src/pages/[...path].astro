@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Blocks from "@librepublish/astro/components/Blocks.astro";
+import Base from "../layouts/Base.astro";
+import Fallback from "../components/blocks/Fallback.astro";
+import type { CmsAsset, CmsPage } from "@librepublish/astro/client";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  // Served where the CMS says each page lives: "/" for the home page, "/fr/…" for French.
+  return pages.map((page) => {
+    const data = page.data as unknown as CmsPage;
+    return { params: { path: data.url.replace(/^\/+/, "") || undefined }, props: { page: data } };
+  });
+}
+
+const { page } = Astro.props;
+const assets = Object.fromEntries((await getCollection("assets")).map((asset) => [asset.id, asset.data as unknown as CmsAsset]));
+const components = new Proxy({}, { get: () => Fallback });
+---
+<Base record={page}>
+  <h1>{page.title}</h1>
+  <Blocks blocks={page.blocks} components={components} assets={assets} />
+</Base>

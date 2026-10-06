@@ -1,0 +1,28 @@
+---
+/**
+ * A page's (or entry's) blocks, each rendered by the component for its type:
+ *
+ *   <Blocks blocks={page.blocks} components={{ hero: Hero, text: Text }} assets={assets} />
+ *
+ * Each component gets the block's data as props, plus `block` (id, type,
+ * version) and `assets` (by id) for its images. A block whose type has no
+ * component is skipped, with a warning while developing.
+ */
+import type { CmsAsset, CmsBlock } from "@librepublish/astro/client";
+
+interface Props {
+  blocks: CmsBlock[] | null | undefined;
+  components: Record<string, any>;
+  assets?: Record<string, CmsAsset>;
+}
+
+const { blocks = [], components, assets = {} } = Astro.props;
+const missing = (blocks ?? []).filter((block) => !components[block.type]).map((block) => block.type);
+if (missing.length && import.meta.env.DEV) {
+  console.warn(`[librepublish] No component for block type${missing.length > 1 ? "s" : ""}: ${[...new Set(missing)].join(", ")}`);
+}
+---
+{(blocks ?? []).map((block) => {
+  const Component = components[block.type];
+  return Component ? <Component {...block.data} block={block} assets={assets} /> : null;
+})}

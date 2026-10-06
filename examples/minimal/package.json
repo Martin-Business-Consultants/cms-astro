@@ -1,0 +1,17 @@
+{
+  "name": "librepublish-example-minimal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.3.6",
+    "@astrojs/cloudflare": "^14.3.4",
+    "@librepublish/astro": "*",
+    "@librepublish/astro-forms": "*",
+    "@librepublish/astro-commerce": "*"
+  }
+}

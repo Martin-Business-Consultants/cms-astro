@@ -1,0 +1,20 @@
+{
+  "name": "@librepublish/astro-commerce",
+  "version": "0.1.0",
+  "description": "LibrePublish CMS commerce on an Astro site: a quote request form that posts straight to the CMS",
+  "license": "FSL-1.1-MIT",
+  "type": "module",
+  "repository": { "type": "git", "url": "https://github.com/Martin-Business-Consultants/cms-astro", "directory": "packages/astro-commerce" },
+  "keywords": ["astro-component", "withastro", "cms", "librepublish", "commerce", "quotes"],
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./components/*": "./src/components/*"
+  },
+  "files": ["dist", "src/components"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": { "astro": "^7.0.0", "@librepublish/astro": "^0.1.0" },
+  "devDependencies": { "astro": "^7.3.6", "typescript": "^5.9.0", "@types/node": "^24.0.0", "@librepublish/astro": "*" }
+}
