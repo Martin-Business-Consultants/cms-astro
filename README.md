@@ -1,6 +1,6 @@
 # LibrePublish CMS for Astro
 
-Astro 7+ integrations that make a site on [LibrePublish CMS](https://github.com/Martin-Business-Consultants/opencms)
+Astro 7+ integrations that make a site on [LibrePublish CMS](https://github.com/Martin-Business-Consultants/cmsv2)
 work the way the CMS expects, on Cloudflare Workers & Pages — clean, minimal
 sites that read the CMS predictably.
 

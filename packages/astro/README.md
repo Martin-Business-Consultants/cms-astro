@@ -1,6 +1,6 @@
 # @librepublish/astro
 
-The Astro integration for [LibrePublish CMS](https://github.com/Martin-Business-Consultants/opencms).
+The Astro integration for [LibrePublish CMS](https://github.com/Martin-Business-Consultants/cmsv2).
 See the [repository README](../../README.md) for setting up a site.
 
 ```js

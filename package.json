@@ -1,7 +1,7 @@
 {
   "name": "librepublish-cms-astro",
   "private": true,
-  "description": "Astro integrations for LibrePublish CMS (opencms)",
+  "description": "Astro integrations for LibrePublish CMS",
   "workspaces": ["packages/*", "examples/*"],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
